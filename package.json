@@ -1,0 +1,20 @@
+{
+  "name": "de",
+  "version": "1.0.0",
+  "description": "hello everyone this is our de project for sem 5",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "manav and utsav and harsh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.3",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7"
+  }
+}
