@@ -14,7 +14,7 @@ app.use(express.static(`${__dirname}/static`))
 
 app.set('view engine', 'ejs')
 
-
+// testing
 
 app.use('/',router);
 
