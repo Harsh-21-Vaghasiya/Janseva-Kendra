@@ -12,6 +12,8 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }))
 app.use(express.static(staticpath))
 app.use(express.static(`${__dirname}/static`))
 
+
+// Use for use html data in node
 app.set('view engine', 'ejs')
 
 // testing
