@@ -114,20 +114,21 @@ exports.delete = async (req, res) => {
     const id = req.query.id;
     console.log(id);
     const data = await Document.findByIdAndRemove(id);
-    console.log("deleted");
-    res.redirect('/');
+    console.log('Data deleted successfully');
+    res.status(200).redirect('/');
   } catch (err) {
     console.log(err);
+    res.status(404).json({ 'message': 'Error in deleting Data' });
 
   }
 }
 
 exports.signup = async (req, res) => {
   try {
-      // const office = await Office.find({});
-      res.status(200).render('signup')
+    // const office = await Office.find({});
+    res.status(200).render('signup')
   } catch (err) {
-      console.log(err);
+    console.log(err);
 
   }
 }
@@ -135,10 +136,10 @@ exports.signup = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-      // const office = await Office.find({});
-      res.status(200).render('login')
+    // const office = await Office.find({});
+    res.status(200).render('login')
   } catch (err) {
-      console.log(err);
+    console.log(err);
 
   }
 }

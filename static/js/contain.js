@@ -37,7 +37,7 @@ function showPosition(position) {
 async function grabData(){
 
     var officeData = await fetch("/api/office");
-    var officeData = await officeData.json();
+    officeData = await officeData.json();
     return officeData;
 }
 // var x="null";
