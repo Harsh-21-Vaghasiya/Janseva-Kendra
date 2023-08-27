@@ -4,7 +4,7 @@
   "description": "hello everyone this is our de project for sem 5",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "dev": "nodemon app.js"
   },
   "author": "manav and utsav and harsh",
@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
+    "EventEmitter": "^1.0.0",
     "express": "^4.18.2",
     "mongoose": "^6.7.3",
     "nodemon": "^2.0.22",

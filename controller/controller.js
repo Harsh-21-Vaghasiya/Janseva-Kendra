@@ -69,15 +69,6 @@ exports.renderOffice = async (req, res) => {
 }
 
 
-exports.loginpage = async (req, res) => {
-  try {
-    // const office = await Office.find({});
-    res.status(200).render('login')
-  } catch (err) {
-    console.log(err);
-
-  }
-}
 
 
 exports.loadDocument = async (req, res) => {
@@ -130,6 +121,28 @@ exports.delete = async (req, res) => {
 
   }
 }
+
+exports.signup = async (req, res) => {
+  try {
+      // const office = await Office.find({});
+      res.status(200).render('signup')
+  } catch (err) {
+      console.log(err);
+
+  }
+}
+
+
+exports.login = async (req, res) => {
+  try {
+      // const office = await Office.find({});
+      res.status(200).render('login')
+  } catch (err) {
+      console.log(err);
+
+  }
+}
+
 
 
 exports.update = async (req, res) => {

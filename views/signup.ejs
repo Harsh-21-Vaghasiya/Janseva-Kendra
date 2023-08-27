@@ -164,7 +164,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="/signup" method="post">
+    <form action="/signupcheak" method="post">
         <h3>Sign Up Here</h3>
 
         <label for="Name">Name</label>
@@ -177,16 +177,10 @@
         <input type="password" placeholder="Password" id="password" name="password" required>
         
         <label for="mobile">Mobile</label>
-        <input type="text" placeholder="Mobile" id="mobile" name="mobile" required>
+        <input type="text" placeholder="Mobile" id="mobile" name="mobile" required style="margin-bottom: 30px;">
         
-        <label for="gender">Gender :-</label>
-        <label for="male" class="unblock">Male</label>
-        <input type="radio" class="unblock g-miner" name="gender" id="male" value="male" checked>
-        <label for="female" class="unblock">Female</label>
-        <input type="radio" class="unblock g-miner" name="gender" id="female" value="female">
-
-        <input type="submit" value="Signup">
-        <p>* - can't be changed afterwards !!!!!!</p>
+        
+        <input type="submit" value="Signup" style="background-color: #2d5eb2;cursor: pointer;">
         <a href="/login">Login</a>
     </form>
 </body>

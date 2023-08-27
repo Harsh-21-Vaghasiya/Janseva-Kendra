@@ -2,8 +2,8 @@ const controller = require('../controller/controller')
 const express = require('express')
 const router = express.Router()
 const app = express()
-const dotenv = require('dotenv')
-const bodyParser = require('body-parser')
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }))
 
 router.route('/')
@@ -24,6 +24,8 @@ router.route('/add_document').get((req,res)=>{
 })
 router.route('/delete').post(controller.delete);
 router.route('/update').get(controller.renderUpdate).post(controller.update);
-router.route('/login').get(controller.loginpage);
+router.route('/signup').get(controller.signup);
+router.route('/login').get(controller.login);
+
 
 module.exports = router;
