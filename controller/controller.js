@@ -68,6 +68,18 @@ exports.renderOffice = async (req, res) => {
   }
 }
 
+
+exports.loginpage = async (req, res) => {
+  try {
+    // const office = await Office.find({});
+    res.status(200).render('login')
+  } catch (err) {
+    console.log(err);
+
+  }
+}
+
+
 exports.loadDocument = async (req, res) => {
   // console.log(req.body,req.query,"loadDocument");
   // send data after first 3 docum
@@ -110,12 +122,7 @@ exports.delete = async (req, res) => {
   try {
     const id = req.query.id;
     console.log(id);
-    const data = await Document.findByIdAndDelete(id, (err, data) => {
-      if (err) {
-        throw new Error("err");
-      }
-      console.log("deleted ", data);
-    });
+    const data = await Document.findByIdAndRemove(id);
     console.log("deleted");
     res.redirect('/');
   } catch (err) {
@@ -127,36 +134,36 @@ exports.delete = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const id=req.query.id;
-    console.log(id,req.body);
-    const data = await Document.findByIdAndUpdate(id,{
-      doc_name:req.body.doc_name,
-      doc_image:req.body.doc_image,
-      doc_discription:req.body.doc_discription,
-      online_site:req.body.online_site,
-      video_link:req.body.video_link,
-      esteemated_time:req.body.esteemated_time,
-    },(err,data)=>{
-      if(err){
+    const id = req.query.id;
+    console.log(id, req.body);
+    const data = await Document.findByIdAndUpdate(id, {
+      doc_name: req.body.doc_name,
+      doc_image: req.body.doc_image,
+      doc_discription: req.body.doc_discription,
+      online_site: req.body.online_site,
+      video_link: req.body.video_link,
+      esteemated_time: req.body.esteemated_time,
+    }, (err, data) => {
+      if (err) {
         console.log(err);
       }
       console.log("updated")
     });
     res.redirect('/');
-   }
+  }
   catch (err) {
     console.log(err);
     res.redirect('/');
   }
 }
 
-exports.renderUpdate = async (req,res) =>{
-  try{
+exports.renderUpdate = async (req, res) => {
+  try {
     console.log(req.query.id);
-      const data = await Document.findOne({_id:req.query.id});
-      console.log(data);
-      res.render("update",{data});
-  }catch(err){
+    const data = await Document.findOne({ _id: req.query.id });
+    console.log(data);
+    res.render("update", { data });
+  } catch (err) {
     console.log("error");
   }
 }

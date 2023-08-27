@@ -22,6 +22,8 @@ router.route('/api/nearby').post(controller.nearby);
 router.route('/add_document').get((req,res)=>{
         res.render('add_data');
 })
-router.route('/delete').get(controller.delete);
-router.route('/update').get(controller.renderUpdate).post(controller.update)
+router.route('/delete').post(controller.delete);
+router.route('/update').get(controller.renderUpdate).post(controller.update);
+router.route('/login').get(controller.loginpage);
+
 module.exports = router;

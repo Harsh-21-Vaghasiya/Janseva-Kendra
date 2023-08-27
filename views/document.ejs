@@ -43,7 +43,7 @@
                     <p class="card-text"><%= data[i].doc_discription  %> </p>
                     <a href="/detail?id=<%= data[i]._id %>" class="btn btn-primary">Read More</a>
                     <a href="/update?id=<%= data[i]._id %>" class="btn btn-primary">Update</a>
-                    <a href="/delete?id=<%=data._id%>" class="btn btn-primary" style="margin: 10px;">delete</a>
+                    <a href="/delete?id=<%=data[i]._id%>" class="btn btn-primary" style="margin: 10px;">delete</a>
                 </div>
             </div>
     <% } %> 
