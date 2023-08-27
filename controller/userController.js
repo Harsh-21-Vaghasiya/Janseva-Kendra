@@ -4,7 +4,13 @@ const logincheak = async (req, res) => {
 
 
 const signupcheak = async (req, res) => {
-    console.log("this is signncheak");
+    try {
+    console.log(req.body);
+        
+        
+    } catch (error) {
+        
+    }
 };
 
 const signuppage = async (req, res) => {

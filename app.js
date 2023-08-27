@@ -7,6 +7,9 @@ const path = require('path');
 const staticpath = path.join(__dirname, 'static');
 const mongoose= require('mongoose');
 
+const Portno=process.env.PORT ||3000;
+
+
 
 // for using the enviromental variables
 const dotenv = require('dotenv');
@@ -22,7 +25,7 @@ app.set('view engine', 'ejs');
 app.use(userRouter);
 
 
-app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }))
+app.use(express.json(), bodyParser.urlencoded({ extended: true }))
 app.use(express.static(staticpath))
 app.use(express.static(`${__dirname}/static`))
 
@@ -37,8 +40,8 @@ const startServer = async () => {
     console.log('Database connected');
 }
 if(startServer()) {
-    app.listen(3000, () => {
-        console.log("Server started on port 3000");
+    app.listen(Portno, () => {
+        console.log("Server started on port "+Portno);
     });
 }
 
