@@ -8,6 +8,10 @@ const staticpath = path.join(__dirname, 'static');
 const mongoose= require('mongoose');
 
 
+// for using the enviromental variables
+const dotenv = require('dotenv');
+dotenv.config();
+
 // Use for use html data in node
 app.set('view engine', 'ejs');
 
@@ -29,7 +33,7 @@ app.use(express.static(`${__dirname}/static`))
 app.use('/', router);
 
 const startServer = async () => {
-    mongoose.connect('mongodb+srv://admin:admin@jansevacluster.emnzais.mongodb.net/Janseva', { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.log('Database connected');
 }
 if(startServer()) {
