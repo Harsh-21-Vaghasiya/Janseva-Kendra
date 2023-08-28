@@ -17,6 +17,10 @@ const useSchema = mongoose.Schema(
         mobile: {
             type: Number,
             required: true
+        },
+        token: {
+            type: String,
+            required: false
         }
 
     }, { timestamps: true }

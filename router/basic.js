@@ -2,12 +2,13 @@ const controller = require('../controller/controller')
 const express = require('express')
 const router = express.Router()
 const app = express()
+const auth=require('../middleware/auth');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }))
 
 router.route('/')
-        .get(controller.renderDocument)
+        .get(auth,controller.renderDocument)
         .post(controller.addDocument);
 
 router.route('/api/get').get(controller.loadDocument);
