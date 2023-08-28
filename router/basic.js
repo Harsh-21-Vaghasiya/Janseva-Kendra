@@ -24,8 +24,6 @@ router.route('/add_document').get((req,res)=>{
 })
 router.route('/delete').get(controller.delete);
 router.route('/update').get(controller.renderUpdate).post(controller.update);
-router.route('/signup').get(controller.signup);
-router.route('/login').get(controller.login);
 
 
 module.exports = router;

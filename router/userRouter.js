@@ -6,8 +6,8 @@ const {logincheak,signupcheak, loginpage, signuppage} = require('../controller/u
 
 userRouter.post('/logincheak', logincheak);
 userRouter.post('/signupcheak', signupcheak);
-userRouter.post('/login',loginpage);
-userRouter.post('/signup', signuppage);
+userRouter.get('/login',loginpage);
+userRouter.get('/signup', signuppage);
 
 
 module.exports = userRouter;

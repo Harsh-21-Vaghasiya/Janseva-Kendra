@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const router = require('./router/basic');
 const userRouter = require('./router/userRouter');
 const path = require('path');
@@ -8,6 +8,11 @@ const staticpath = path.join(__dirname, 'static');
 const mongoose= require('mongoose');
 
 const Portno=process.env.PORT ||3000;
+
+app.use(express.json(), bodyParser.urlencoded({ extended: true }));
+app.use(express.static(staticpath));
+app.use(express.static(`${__dirname}/static`));
+
 
 
 
@@ -23,11 +28,6 @@ app.set('view engine', 'ejs');
 // UserRouter
 
 app.use(userRouter);
-
-
-app.use(express.json(), bodyParser.urlencoded({ extended: true }))
-app.use(express.static(staticpath))
-app.use(express.static(`${__dirname}/static`))
 
 
 

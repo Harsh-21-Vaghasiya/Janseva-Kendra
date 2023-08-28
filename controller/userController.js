@@ -1,3 +1,12 @@
+const mongoose = require('mongoose')
+const express = require('express')
+const app = express()
+const dotenv = require('dotenv')
+const Document = require('../models/document')
+const Office = require('../models/office')
+
+
+
 const logincheak = async (req, res) => {
     console.log("this is logincheak");
 };
@@ -14,7 +23,13 @@ const signupcheak = async (req, res) => {
 };
 
 const signuppage = async (req, res) => {
-    console.log("this is signup");
+    try {
+        // const office = await Office.find({});
+        res.status(200).render('signup')
+    } catch (err) {
+        console.log(err);
+
+    }
 };
 
 
