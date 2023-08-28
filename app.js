@@ -41,7 +41,7 @@ const startServer = async () => {
 }
 if(startServer()) {
     app.listen(Portno, () => {
-        console.log("Server started on port "+Portno);
+        console.log("Server started on port : "+Portno);
     });
 }
 

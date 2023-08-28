@@ -1,137 +1,138 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Jan-SevaKendra</title>
-    <link rel="stylesheet" media="(min-width:600px)" href="/css/pc/details-style-pc.css">
-    <!-- added media query for width less than 300px for mobile -->
-    <link rel="stylesheet" media="(max-width:600px)" href="/css/mobile/details-style-mobile.css">
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/office">Office</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/add_document">Add Data</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <% if(data){%> 
-      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="<%= data.doc_image %> ">
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1"><%= data.doc_name %> </h1>
-        
-        <p class="leading-relaxed"><%= data.doc_discription %> </p>
-        
-    </div>
-  </div>
-</section>
-<div class="body">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  
+  <title>Jan-SevaKendra</title>
+  <link rel="stylesheet" media="(min-width:600px)" href="/css/pc/details-style-pc.css">
+  <!-- added media query for width less than 300px for mobile -->
+  <link rel="stylesheet" media="(max-width:600px)" href="/css/mobile/details-style-mobile.css">
+</head>
+
+<body>
+  <%- include("header") %>
+
+  <section class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <% if(data){%>
+          <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+            src="<%= data.doc_image %> ">
+          <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+              <%= data.doc_name %>
+            </h1>
+
+            <p class="leading-relaxed">
+              <%= data.doc_discription %>
+            </p>
+
+          </div>
+      </div>
+  </section>
+  <div class="body">
     <div class="required">
       <p>Required Documents</p>
       <ul>
         <% for(var i=0;i<data.required_documents.length;i++){%>
-          <li><%= data.required_documents[i].doc_name %> </li>
-        <% } %>
+          <li>
+            <%= data.required_documents[i].doc_name %>
+          </li>
+          <% } %>
       </ul>
     </div>
-    <% if(data.online_site){%> 
-    <div class="online">
-      <p>Apply Online Now :-</p>
-      <a href="<%= data.online_site %> ">Apply Online Now</a>
-    </div>
-    <% } %>
-    <% if(data.video_link){%>
-    <div class="video">
-      <iframe width="600" height="400" src="<%= data.video_link %> " title="Watch the video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <ul% } %>
-    <div class="other">
-      <p class="x">Other Details:</p>
-      <p class="y">Esteemeted time :- <%= data.esteemated_time %> </p>
-    </div>
-    <div class="other nearby">
-      <p class="x">Nearby Offices:</p>
-      <ul class="y" id="y"></ul>
-    </div>
-    <% } %> 
-    <%}%>
-</div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script defer>
-      //  make ajax request to get nearby offices with vanila js
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/api/nearby', true);
-      xhr.onload = function () {
-        // do something to response
-        var nearby = JSON.parse(this.responseText);
-        console.log(nearby.data[0]);
-        var nearbyDiv = document.querySelector('.nearby');
-        var nearbyP = document.querySelector('#y');
-        // sort data by distance from user
-        // loop through data and add li to ul
+    <% if(data.online_site){%>
+      <div class="online">
+        <p>Apply Online Now :-</p>
+        <a href="<%= data.online_site %> ">Apply Online Now</a>
+      </div>
+      <% } %>
+        <% if(data.video_link){%>
+          <div class="video">
+            <iframe width="600" height="400" src="<%= data.video_link %> " title="Watch the video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <ul% } %>
+            <div class="other">
+              <p class="x">Other Details:</p>
+              <p class="y">Esteemeted time :- <%= data.esteemated_time %>
+              </p>
+            </div>
+            <div class="other nearby">
+              <p class="x">Nearby Offices:</p>
+              <ul class="y" id="y"></ul>
+            </div>
+            <% } %>
+              <%}%>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script defer>
+    //  make ajax request to get nearby offices with vanila js
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/nearby', true);
+    xhr.onload = function () {
+      // do something to response
+      var nearby = JSON.parse(this.responseText);
+      console.log(nearby.data[0]);
+      var nearbyDiv = document.querySelector('.nearby');
+      var nearbyP = document.querySelector('#y');
+      // sort data by distance from user
+      // loop through data and add li to ul
 
-        for(var i=0;i<nearby.data.length;i++){
-          // if the docuemnt is not available in the office then skip it
-          var isGet=false;
-          for(var j=0;j<nearby.data[i].documents.length;j++){
-            if(nearby.data[i].documents[j].doc_name == '<%= data.doc_name %>'){
-              isGet=true;
-              break;
-            }
+      for (var i = 0; i < nearby.data.length; i++) {
+        // if the docuemnt is not available in the office then skip it
+        var isGet = false;
+        for (var j = 0; j < nearby.data[i].documents.length; j++) {
+          if (nearby.data[i].documents[j].doc_name == '<%= data.doc_name %>') {
+            isGet = true;
+            break;
           }
-          if(!isGet){
-            continue;
-          }
-          var li = document.createElement('li');
-          
-          // added office id in href link of attribute
-          // onclick locate should open google map with path toward office location gain from data
-          
-          
-          li.innerHTML = `<p><a href="/office/${nearby.data[i]._id}">${nearby.data[i].office_name}</p><p><a href="tel:+${nearby.data[i].office_phone}">${nearby.data[i].office_phone}</a></p><p>${nearby.data[i].office_timing}</p><p><a href="https://www.google.com/maps/search/?api=1&query=${nearby.data[i].lognitude}%2c${nearby.data[i].latitude}" target="_blank">Locate</a></p>`;
-          // addded flex display in this li
-          // added attribute of style with dislay flex and justify content space between
-          nearbyP.appendChild(li);
         }
-      };
-      xhr.send();
-      // id #y has no li element add no office found
-      setTimeout(function(){
-        if(document.querySelector('#y').childElementCount == 0){
-          var li = document.createElement('li');
-          li.innerHTML = 'No Office Found';
-          document.querySelector('#y').appendChild(li);
+        if (!isGet) {
+          continue;
         }
-      },2000);
-      </script>
-     
+        var li = document.createElement('li');
 
-<div>
-</div>
+        // added office id in href link of attribute
+        // onclick locate should open google map with path toward office location gain from data
+
+
+        li.innerHTML = `<p><a href="/office/${nearby.data[i]._id}">${nearby.data[i].office_name}</p><p><a href="tel:+${nearby.data[i].office_phone}">${nearby.data[i].office_phone}</a></p><p>${nearby.data[i].office_timing}</p><p><a href="https://www.google.com/maps/search/?api=1&query=${nearby.data[i].lognitude}%2c${nearby.data[i].latitude}" target="_blank">Locate</a></p>`;
+        // addded flex display in this li
+        // added attribute of style with dislay flex and justify content space between
+        nearbyP.appendChild(li);
+      }
+    };
+    xhr.send();
+    // id #y has no li element add no office found
+    setTimeout(function () {
+      if (document.querySelector('#y').childElementCount == 0) {
+        var li = document.createElement('li');
+        li.innerHTML = 'No Office Found';
+        document.querySelector('#y').appendChild(li);
+      }
+    }, 2000);
+  </script>
+
+
+  <div>
+  </div>
 </body>
+
 </html>

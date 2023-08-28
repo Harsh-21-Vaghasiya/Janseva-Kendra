@@ -1,4 +1,4 @@
-<script>
+{/* <script>
         const output = document.querySelector('#output');
 function distance(lat1,lat2, lon1, lon2){
         lon1 =  lon1 * Math.PI / 180;
@@ -45,4 +45,4 @@ const officeData = grabData().then(function(data) {
     return data;
 });
 console.log(officeData,"office");
-    </script>
+    </script> */}

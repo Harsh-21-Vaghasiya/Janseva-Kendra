@@ -2,31 +2,29 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 const cookie = require('cookie-parser');
-
 const express = require('express');
 const app = express();
 app.use(express.json());
 app.use(cookie());
-const SECRETKEY = 'NoteApi';
+const SECRETKEY = process.env.SECRETKEY;
 
 
 const auth = (function (req, res, next) {
 
 
     try {
-        console.log(req.cookies);
-        // let token =window.cookie;
-        console.log(token);
-        
-        // console.log('token' +token );
+        let token = req.headers.cookie.split('=')[1];
         if (token) {
-            // token = token.split(" ")[1];
             let user = jwt.verify(token, SECRETKEY);
+
+            console.log(user.id);
             req.userId = user.id;
 
         }
         else {
-          return res.status(401).json({ 'message': ' user not authorized' });
+            res.status(401).render('login');
+
+            // return res.status(401).json({ 'message': ' user not authorized' });
 
         }
 
@@ -34,7 +32,8 @@ const auth = (function (req, res, next) {
     }
     catch (error) {
         console.log(error);
-        res.status(401).json({ 'message': 'Unauthorized user not authorized' });
+        res.status(401).render('login');
+        // res.status(401).json({ 'message': 'Unauthorized user not authorized' });
 
     }
 });
