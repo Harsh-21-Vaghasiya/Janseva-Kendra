@@ -82,7 +82,7 @@ const signupcheak = async (req, res) => {
         // Cokkkie  Section
 
         const options = {
-            expires: new Date(Date.now() + 3 * 60 * 60 * 1000 * 24),
+            expires: new Date(Date.now() + 60 * 1000 * 5),
             httpOnly: true,
         };
 
